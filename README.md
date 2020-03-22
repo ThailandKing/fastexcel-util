@@ -121,7 +121,7 @@ public static <T> List<T> importDataBrowser(InputStream is,
 
 ### 1、添加依赖
 
-```java
+```xml
 <!--fastexcel-writer-->
 <dependency>
     <groupId>org.dhatim</groupId>
@@ -214,7 +214,13 @@ public void exportMultiply(HttpServletResponse response) {
 
 ### 1、添加依赖
 
-```java
+```xml
+<!--fastexcel-writer-->
+<dependency>
+    <groupId>org.dhatim</groupId>
+    <artifactId>fastexcel</artifactId>
+    <version>0.10.10</version>
+</dependency>
 <!--fastexcel-reader-->
 <dependency>
     <groupId>org.dhatim</groupId>

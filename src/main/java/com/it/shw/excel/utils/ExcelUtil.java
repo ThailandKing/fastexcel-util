@@ -1,6 +1,5 @@
-package com.it.shw.excel.utils;
+﻿package com.it.shw.excel.utils;
 
-import com.it.shw.excel.annotion.ShowStyle;
 import org.dhatim.fastexcel.Workbook;
 import org.dhatim.fastexcel.Worksheet;
 import org.dhatim.fastexcel.reader.Cell;
@@ -181,6 +180,10 @@ public class ExcelUtil {
     private static void getCellValue(Row row, int index, Field field, Object o) throws Exception {
         field.setAccessible(true);
         Cell cell = row.getCell(index);
+        if (cell.getValue() == null || "".equals(cell.getValue())) {
+            field.set(o, cell.getValue());
+            return;
+        }
         // Integer
         if (field.getType().isAssignableFrom(Integer.class) || field.getType().getName().equals("int")) {
             field.set(o, Integer.valueOf(cell.getValue().toString()));
@@ -304,4 +307,3 @@ public class ExcelUtil {
         return returnData;
     }
 }
-
